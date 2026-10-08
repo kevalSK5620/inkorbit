@@ -255,7 +255,7 @@ document.querySelectorAll('.lr').forEach(r=>{r.addEventListener('mouseenter',()=
 /* ---------- detail ---------- */
 const dt=$('dt'),dcv=$('dm').querySelector('canvas');let cur=-1,dpx=0,dpy=0,dtx=0,dty=0;
 function openD(i){cur=i;const s=SV[i];dt.scrollTop=0;$('dm').style.setProperty('--t',hex(s.c));
- $('dl').innerHTML=`<div class="mo lab" style="--k:0">SVC ${s.n} · 2026</div><h2 style="--k:1">${s.t}</h2><div class="mo lab" style="--k:2">What's inside</div><ul style="--k:3">${s.i.map(x=>`<li>${x}</li>`).join('')}</ul><div class="mo lab" style="--k:4">${s.tag}</div><div class="so" style="--k:5"><span>IG</span><span>IN</span><span>X</span></div><a class="btn" style="--k:6;width:max-content" href="mailto:hello@inkorbit.com?subject=${encodeURIComponent(s.t)}" data-c="v"><i></i>Start a project</a>`;
+ $('dl').innerHTML=`<div class="mo lab" style="--k:0">SVC ${s.n} · 2026</div><h2 style="--k:1">${s.t}</h2><div class="mo lab" style="--k:2">What's inside</div><ul style="--k:3">${s.i.map(x=>`<li>${x}</li>`).join('')}</ul><div class="mo lab" style="--k:4">${s.tag}</div><div class="so" style="--k:5"><span>IG</span><span>IN</span><span>X</span></div><a class="btn" style="--k:6;width:max-content" href="mailto:inkorbit.creation@gmail.com?subject=${encodeURIComponent(s.t)}" data-c="v"><i></i>Start a project</a>`;
  $('dp').innerHTML=`<div class="mo lab" style="color:var(--mut)">How we approach it</div><p>${s.d}</p><div class="mo lab" style="color:var(--mut);margin-top:10px">What we deliver</div><div class="tp">${s.i.map(x=>`<span>${x}</span>`).join('')}</div>`;
  dt.classList.remove('o');void dt.offsetWidth;dt.classList.add('o');document.body.style.overflow='hidden'}
 function closeD(){dt.classList.remove('o');cur=-1;document.body.style.overflow=''}
