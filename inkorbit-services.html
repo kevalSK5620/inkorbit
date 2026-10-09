@@ -6,7 +6,7 @@
 <title>Services — Inkorbit Creation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
 <style>
-:root{--bg:#05040A;--pink:#FF3CC8;--vio:#8A4DFF;--blue:#3B82FF;--cyan:#00D1FF;--txt:#F5F3FF;--mut:#9C96B8;--ln:#ffffff1c;--grad:linear-gradient(90deg,#FF3CC8,#8A4DFF,#3B82FF,#00D1FF);--mono:'Space Mono',monospace}
+:root{--bg:#05040A;--pan:#0B0915;--pink:#FF3CC8;--vio:#8A4DFF;--blue:#3B82FF;--cyan:#00D1FF;--txt:#F5F3FF;--mut:#9C96B8;--ln:#ffffff1c;--grad:linear-gradient(90deg,#FF3CC8,#8A4DFF,#3B82FF,#00D1FF);--mono:'Space Mono',monospace}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--txt);font-family:Manrope,Arial,sans-serif;overflow-x:hidden;cursor:none}
@@ -27,7 +27,7 @@ body.ready #ld{opacity:0;visibility:hidden}
 header.top{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 32px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand img{display:block;width:auto;height:36px;max-width:min(45vw,260px);object-fit:contain}
-.hr{display:flex;align-items:center;gap:14px}
+.hr{display:flex;align-items:center;gap:8px}
 .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .3s}
 .pg{background:#ffffff14;color:var(--txt);backdrop-filter:blur(10px)}
 .pg:hover{background:#ffffff26}
@@ -59,10 +59,11 @@ body.ready .sp .w span{transform:none}
 .cd{position:relative;aspect-ratio:var(--ar);border-radius:14px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0,color-mix(in srgb,var(--t) 24%,#0c0a14),#08060f 75%);border:1px solid var(--ln);transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .5s;transform-origin:50% 60%}
 .cd:hover{transform:scale(1.025);box-shadow:0 40px 90px color-mix(in srgb,var(--t) 28%,transparent)}
 .cd canvas{position:absolute;inset:0;width:100%;height:100%}
-.cd .meta{position:absolute;left:14px;top:12px;display:flex;flex-direction:column;gap:2px;line-height:1.3}
-.cd .go{position:absolute;right:12px;top:12px;width:26px;height:26px;border-radius:50%;background:#fff;color:#05040A;display:grid;place-items:center;font-size:13px;transition:transform .4s}
+.cd .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.cd .meta{position:absolute;z-index:2;left:14px;top:12px;display:flex;flex-direction:column;gap:2px;line-height:1.3}
+.cd .go{position:absolute;z-index:2;right:12px;top:12px;width:26px;height:26px;border-radius:50%;background:#fff;color:#05040A;display:grid;place-items:center;font-size:13px;transition:transform .4s}
 .cd:hover .go{transform:rotate(45deg) scale(1.15)}
-.cd .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(#0000,#05040Ae6);backdrop-filter:blur(2px)}
+.cd .cap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(#0000,#05040Ae6);backdrop-filter:blur(2px)}
 .cd .cap h3{font-size:clamp(20px,2vw,26px);font-weight:500;letter-spacing:-.02em;margin-bottom:6px}
 .cd .cap p{color:#cfc9e4;font-size:9.5px}
 /* list view */
@@ -82,7 +83,21 @@ body.list .gv{display:none}body.list .lv{display:block}
 .btn:hover{background:var(--grad);color:#fff}
 .btn i{width:6px;height:6px;border-radius:50%;background:currentColor}
 .btn.g{background:#ffffff1a;color:#fff}.btn.g:hover{background:#ffffff33}
-footer{padding:26px 28px 34px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--mut);border-top:1px solid var(--ln)}
+footer.ft{position:relative;z-index:2;background:var(--pan);border-top:1px solid var(--ln);padding:80px 0 30px;color:var(--txt)}
+footer.ft .wrap{max-width:none;padding:0 52px}
+.fg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.6fr) minmax(0,1fr) minmax(0,1.15fr);gap:4vw;align-items:start}
+.fg>div{display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5}
+.fg .lbl{color:var(--mut);margin-bottom:8px}
+.fg a{transition:color .3s}.fg a:hover{color:var(--pink)}
+.news h2{font-size:clamp(24px,2.5vw,36px);font-weight:300;letter-spacing:-.05em;line-height:.98;margin:0 0 24px;white-space:nowrap}
+.nl{display:flex;align-items:center;width:100%;background:#ffffff0f;border:1px solid var(--ln);border-radius:20px;padding:6px 8px 6px 22px;max-width:640px;transition:border-color .3s}
+.nl:focus-within{border-color:var(--vio)}
+.nl input{flex:1;background:none;border:0;color:var(--txt);font:inherit;font-size:18px;padding:20px 0;outline:0;min-width:0}
+.nl input::placeholder{color:#8d8798}
+.nl button{width:50px;height:50px;border:0;border-radius:14px;background:none;color:var(--txt);font-size:24px;cursor:none;transition:background .3s}
+.nl button:hover{background:var(--grad)}
+.fb{display:flex;justify-content:space-between;align-items:center;margin-top:70px;color:var(--mut);font-size:12px}
+.fb img{height:34px}
 /* detail */
 #dt{position:fixed;inset:0;z-index:200;background:#05040A;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .55s,visibility .55s}
 #dt.o{opacity:1;visibility:visible}
@@ -107,9 +122,12 @@ footer{padding:26px 28px 34px;display:flex;justify-content:space-between;flex-wr
 .dn button{background:none;border:0;color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.1em}
 /* subscribe */
 @keyframes flow{to{background-position:200% 0}}
-@media(max-width:900px){header.top{padding:12px 18px}.gv{grid-template-columns:1fr;row-gap:36px}.cw{grid-column:1/-1!important;margin-top:0!important;transform:none!important}.hero .rp{position:static;margin-top:26px}.hero .sd{display:none}.lr{grid-template-columns:50px 1fr 30px}.lr .tgs{display:none}.dg{grid-template-columns:1fr;padding-top:110px}.dl{position:static}.view-switch{margin:22px 18px -50px auto}}
-@media(max-width:600px){header.top{padding:12px 14px}.brand img{height:30px;max-width:42vw}.hr{gap:6px}.tg button{padding:4px 6px;font-size:8px}.top .pill{padding:8px 10px;font-size:9px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+@media(max-width:900px){.gv{grid-template-columns:1fr;row-gap:36px}.cw{grid-column:1/-1!important;margin-top:0!important;transform:none!important}.hero .rp{position:static;margin-top:26px}.hero .sd{display:none}.lr{grid-template-columns:50px 1fr 30px}.lr .tgs{display:none}.dg{grid-template-columns:1fr;padding-top:110px}.dl{position:static}.view-switch{margin:22px 18px -50px auto}.fg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){header.top{padding-left:18px;padding-right:18px}.hr .hide{display:none}footer.ft{padding:54px 0 26px}footer.ft .wrap{padding:0 18px}.fg{grid-template-columns:1fr;gap:34px}.news h2{font-size:clamp(24px,6vw,32px)}.fb{margin-top:48px;gap:20px}}
+@media(max-width:600px){.tg button{padding:4px 6px;font-size:8px}}
+.nl-toast{position:fixed;z-index:500;left:50%;bottom:24px;max-width:calc(100vw - 32px);padding:12px 16px;border:1px solid transparent;border-radius:999px;background:linear-gradient(#100d1b,#100d1b) padding-box,var(--grad) border-box;color:var(--txt);font-size:clamp(11px,3.2vw,13px);line-height:1.3;white-space:nowrap;box-shadow:0 12px 40px #0009;opacity:0;visibility:hidden;transform:translate(-50%,16px);transition:opacity .3s,transform .3s,visibility .3s}
+.nl-toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.nl-toast{transition:none}}
 </style>
 </head>
 <body>
@@ -119,7 +137,7 @@ footer{padding:26px 28px 34px;display:flex;justify-content:space-between;flex-wr
   <a class="brand" href="index.html" data-c="s"><img src="image/inkorbit-logo.png" alt="Inkorbit Creation"></a>
   <div class="hr"><a class="pill pf hide" href="inkorbit-contact.html#form">Let's talk <i></i></a><a class="pill pg" href="#" id="mb" data-c="s">Menu <i></i><i></i></a></div>
 </header>
-<nav id="menu"><a href="index.html">Home</a><a href="inkorbit-about.html">About</a><a href="inkorbit-services.html">Services</a><a href="inkorbit-contact.html">Contact</a></nav>
+<nav id="menu"><a href="index.html">Home</a><a href="inkorbit-about.html">About</a><a href="inkorbit-services.html">Services</a><a href="inkorbit-projects.html">Projects</a><a href="inkorbit-contact.html">Contact</a></nav>
 
 <main id="top">
 <section class="hero">
@@ -133,7 +151,23 @@ footer{padding:26px 28px 34px;display:flex;justify-content:space-between;flex-wr
 <section class="lv" id="lv"></section>
 <section class="ct" id="contact"><h2 class="sp" id="h2c">Have an idea?<br><span class="gt">Let's make it matter.</span></h2><div style="display:flex;flex-direction:column;gap:18px;max-width:340px"><p style="color:#d2cde6;line-height:1.6;font-size:15px">Let's turn it into something people can see, feel, use, and remember.</p><a class="btn" href="mailto:inkorbit.creation@gmail.com" data-c="v">Start a project <i></i></a></div></section>
 </main>
-<footer class="mo"><span>© 2026 Inkorbit Creation</span><span>Creative thinking. Digital craft. Meaningful experiences.</span><span><a href="inkorbit-about.html" data-c="s">About</a> · <a href="index.html" data-c="s">Home</a></span></footer>
+<footer class="ft"><div class="wrap">
+  <div class="fg">
+    <div><div class="lbl">Inkorbit Creation</div><span>Creative thinking. Digital craft.<br>Meaningful experiences.</span></div>
+    <div><div class="lbl">Connect</div><a href="https://www.instagram.com/inkorbitcreation/" target="_blank" rel="noopener noreferrer" data-c="s">Instagram</a><a href="https://www.linkedin.com/company/inkorbit-creation/" target="_blank" rel="noopener noreferrer" data-c="s">LinkedIn</a></div>
+    <div><div class="lbl">General enquiries</div><a href="mailto:inkorbit.creation@gmail.com" data-c="s">inkorbit.creation@gmail.com</a></div>
+    <div class="news"><h2>Subscribe to<br>our newsletter</h2><form class="nl" action="https://script.google.com/macros/s/AKfycbx7bM0uPDIEX_v2q_VPO2_B1wcpkcQO0iAgHju7H9h3zLu3wu7vPM9ZxLbQMrzqvNY/exec" method="GET" target="newsletterFrame">
+      <input type="email" name="email" placeholder="Your email" aria-label="Your email" required>
+      <button type="submit" aria-label="Subscribe" data-c="s">→</button>
+    </form></div>
+  </div>
+  <iframe name="newsletterFrame" title="Newsletter subscription" style="display:none"></iframe>
+  <div class="fb"><img src="image/inkorbit-logo.png" alt="Inkorbit Creation"><span>© 2026 Inkorbit Creation</span></div>
+</div></footer>
+<script>
+(()=>{const form=document.querySelector('.nl'),frame=document.querySelector('iframe[name="newsletterFrame"]');if(!form||!frame)return;const toast=document.createElement('div');toast.className='nl-toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');toast.textContent="You're on the list — thanks for subscribing!";document.body.append(toast);let waiting=false,timer;form.addEventListener('submit',()=>{waiting=true});frame.addEventListener('load',()=>{if(!waiting)return;waiting=false;form.reset();toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),4500)})})();
+</script>
+
 <div id="pv"><canvas width="680" height="476"></canvas></div>
 <div id="dt"><button class="bk" id="bk" data-c="s">Back</button>
   <div class="dg"><div class="dl" id="dl"></div><div class="dr"><div class="dm" id="dm"><canvas width="800" height="560"></canvas></div><div class="dp" id="dp"></div></div></div>
