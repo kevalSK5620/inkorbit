@@ -55,9 +55,10 @@ main{position:relative;z-index:2}
 .hero .wrap{width:100%;z-index:2;pointer-events:none}
 .hero .wrap a,.hero .wrap button{pointer-events:auto}
 .hero h1{font-weight:300;font-size:clamp(46px,9.6vw,170px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase}
-.hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:44px}
+ .hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:44px}
 .hero .row p{max-width:420px;font-size:clamp(16px,1.4vw,20px);line-height:1.5;color:#d9d5ec}
-.mail{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mail{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.mail-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .mail a.em{font-size:clamp(22px,3vw,46px);font-weight:300;letter-spacing:-.03em;border-bottom:1px solid #ffffff55;padding-bottom:4px;transition:border-color .3s}
 .mail a.em:hover{border-color:var(--pink)}
 .vg{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 70% 40%,#0000 35%,#05040Aaa 100%)}
@@ -107,7 +108,7 @@ main{position:relative;z-index:2}
 .fg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.6fr) minmax(0,1fr) minmax(0,1.15fr);gap:4vw;align-items:start}
 .fg>div{display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5}
 .fg .lbl{color:var(--mut);margin-bottom:8px}
-.fg a.social-link{display:inline-flex;align-items:center;gap:10px;width:max-content}
+.fg a.social-link{display:inline-flex;align-items:center;gap:10px;width:max-content}.fg>div:nth-child(2){display:flex;flex-direction:column;gap:10px}.fg>div:nth-child(2) .lbl{margin-bottom:0}
 .social-icon{width:20px;height:20px;flex:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .3s}
 .social-link:hover .social-icon{transform:translateY(-3px) rotate(-8deg) scale(1.1);filter:drop-shadow(0 0 7px #FF3CC899)}
 .news h2{font-size:clamp(24px,2.5vw,36px);font-weight:300;letter-spacing:-.05em;line-height:.98;margin:0 0 24px;white-space:nowrap}
@@ -142,7 +143,7 @@ main{position:relative;z-index:2}
     <h1 class="sp" id="h1">Let's make<br><span class="gt">something matter.</span></h1>
     <div class="row">
       <p class="fd">Have an idea? Let's turn it into something people can see, feel, use, and remember.</p>
-      <div class="mail fd"><a class="em mg" href="mailto:inkorbit.creation@gmail.com">inkorbit.creation@gmail.com</a><button class="pill pg mg" id="cp" type="button">Copy</button></div>
+      <div class="mail fd"><a class="em mg" href="https://wa.me/919726174887" target="_blank" rel="noopener noreferrer">+91 9726174887</a><div class="mail-row"><a class="em mg" href="mailto:inkorbit.creation@gmail.com">inkorbit.creation@gmail.com</a></div></div>
     </div>
   </div>
 </section>
@@ -341,7 +342,7 @@ contactForm.addEventListener("submit", async function (e) {
 <footer class="ft"><div class="wrap">
   <div class="fg">
     <div><div class="lbl">Inkorbit Creation</div><span>Creative thinking. Digital craft.<br>Meaningful experiences.</span></div>
-    <div><div class="lbl">Connect</div><a class="social-link" href="https://www.instagram.com/inkorbitcreation/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>Instagram</a><a class="social-link" href="https://www.linkedin.com/company/inkorbit-creation/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 3.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4ZM3.3 9.5h3.8v11H3.3v-11Zm6.1 0H13v1.5h.1a4 4 0 0 1 3.6-1.9c3.8 0 4.5 2.5 4.5 5.7v5.7h-3.8v-5c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7v5.1H9.4v-11Z"/></svg>LinkedIn</a></div>
+    <div><div class="lbl">Connect</div><a class="social-link" href="https://www.instagram.com/inkorbitcreation/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>Instagram</a><a class="social-link" href="https://www.linkedin.com/company/inkorbit-creation/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 3.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4ZM3.3 9.5h3.8v11H3.3v-11Zm6.1 0H13v1.5h.1a4 4 0 0 1 3.6-1.9c3.8 0 4.5 2.5 4.5 5.7v5.7h-3.8v-5c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7v5.1H9.4v-11Z"/></svg>LinkedIn</a><a class="social-link" href="https://wa.me/919726174887" target="_blank" rel="noopener noreferrer"><svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.88.33 1.82.56 2.78.69A2 2 0 0 1 22 16.92Z"/></svg>+91 9726174887</a></div>
     <div><div class="lbl">General enquiries</div><a href="mailto:inkorbit.creation@gmail.com">inkorbit.creation@gmail.com</a></div>
     <div class="news"><h2>Subscribe to<br>our newsletter</h2><form
   class="nl"
@@ -395,7 +396,6 @@ let pc=0;const cnt=$('cnt');
 const mb=$('mb'),menu=$('menu'),cu=$('cu');
 mb.onclick=e=>{e.preventDefault();menu.classList.toggle('o')};menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('o'));
 document.addEventListener('mouseover',e=>{cu.classList.toggle('b',!!e.target.closest('.mg,.chip'))});
-$('cp').onclick=function(){navigator.clipboard&&navigator.clipboard.writeText('inkorbit.creation@gmail.com');this.textContent='Copied ✓';setTimeout(()=>this.textContent='Copy',1800)};
 $('nf').onsubmit=e=>{e.preventDefault();const v=$('ne').value.trim();$('nm').textContent=/^\S+@\S+\.\S+$/.test(v)?'Thanks — you\'re on the list.':'Please enter a valid email.';if(/^\S+@\S+\.\S+$/.test(v)){$('ne').value='';burst=.6}};
 /* contact form -> opens the visitor's email app with everything filled in */
 $('cf').onsubmit=e=>{e.preventDefault();const f={n:$('fn'),e:$('fe'),m:$('fm2')};let ok=true;
