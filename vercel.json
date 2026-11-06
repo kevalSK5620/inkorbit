@@ -27,5 +27,23 @@
       "destination": "/contact",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/inkorbit-about.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/inkorbit-services.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/inkorbit-projects.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/inkorbit-contact.html"
+    }
   ]
 }
