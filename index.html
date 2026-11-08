@@ -75,7 +75,7 @@ header.top{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-
 #menu a:hover{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 /* hero */
 .hero{padding-top:92px}
-.intro{margin-left:clamp(0px,13vw,190px);max-width:430px;font-size:clamp(16px,1.5vw,20px);line-height:1.35;margin-bottom:26px;min-height:54px}
+.intro{margin-left:0;max-width:430px;font-size:clamp(16px,1.5vw,20px);line-height:1.35;margin-bottom:26px;min-height:54px}
 .panel{position:relative;border-radius:26px;overflow:hidden;background:radial-gradient(120% 120% at 70% 20%,#1A1233,#07060E 60%);height:calc(100svh - 190px);min-height:440px;border:1px solid var(--ln)}
 .panel .stage,.stage{position:absolute;inset:0}
 .stage canvas{display:block;width:100%!important;height:100%!important}
@@ -241,6 +241,49 @@ footer.ft .wrap{max-width:none;padding:0 52px}
 .tun .wash{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;mix-blend-mode:screen;background:radial-gradient(circle at 50% 50%,#fff 0,#6c86ff 22%,#2b3dff 55%,#1a22d8 100%)}
 .tun .vig{position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(circle,#0000 55%,#000a 100%)}
 .tun .ph{z-index:3}
+
+/* ===== LIVING HEADLINE + BRAND LAB ===== */
+.lh{font-weight:300;font-size:clamp(70px,12vw,220px);line-height:.86;letter-spacing:-.05em;position:relative;z-index:2;cursor:default}
+.lh .wd{display:inline-block;white-space:nowrap;margin-right:.2em}
+.lh .ch{display:inline-block;opacity:0;transform:translateY(80%) rotate(8deg);filter:blur(10px);
+  transition:opacity .9s,transform 1.1s cubic-bezier(.2,.8,.2,1),filter .9s;transition-delay:calc(var(--i)*38ms)}
+.lh.in .ch{opacity:1;transform:translate(var(--dx,0px),var(--dy,0px)) scale(var(--sc,1)) rotate(var(--rt,0deg));filter:blur(0);transition-delay:0s;transition-duration:.35s,.35s,.5s}
+.lh.in.first .ch{transition-delay:calc(var(--i)*38ms);transition-duration:.9s,1.1s,.9s}
+.lh em{font-style:normal;position:relative;display:inline-block}
+.lh em .ch{background:var(--grad);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 5s linear infinite;animation-delay:calc(var(--i)*-260ms)}
+
+.lab{position:relative;width:min(44vw,640px);min-width:340px;aspect-ratio:1.12;border-radius:26px;overflow:hidden;background:#07050f;border:1px solid var(--ln);isolation:isolate;box-shadow:0 40px 90px #8A4DFF26}
+.lab-bg{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(60% 60% at var(--mx,50%) var(--my,50%),#8A4DFF40,transparent 70%),
+  linear-gradient(#ffffff08 1px,transparent 1px) 0 0/44px 44px,
+  linear-gradient(90deg,#ffffff08 1px,transparent 1px) 0 0/44px 44px,
+  radial-gradient(120% 100% at 50% 0,#1b0f3d,#06040d 70%)}
+.lab-bg::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,#FF3CC833,#8A4DFF00,#00D1FF33,#8A4DFF00,#FF3CC833);animation:spin 16s linear infinite;filter:blur(30px)}
+.lab canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lab-hud{position:absolute;left:18px;right:18px;display:flex;justify-content:space-between;gap:12px;color:#cfc9ea;pointer-events:none;z-index:3}
+.lab-hud.top{top:16px}.lab-hud.bot{bottom:20px}
+.lab-hud b{color:#fff;font-weight:700}
+.lab-hint{opacity:.5}
+.lab .cn{position:absolute;width:14px;height:14px;border:1.5px solid #ffffff55;z-index:3;pointer-events:none}
+.lab .tl{left:10px;top:10px;border-right:0;border-bottom:0}.lab .tr{right:10px;top:10px;border-left:0;border-bottom:0}
+.lab .bl{left:10px;bottom:10px;border-right:0;border-top:0}.lab .br{right:10px;bottom:10px;border-left:0;border-top:0}
+.lab-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#ffffff10;z-index:3}
+.lab-bar u{display:block;height:100%;width:0;background:var(--grad);box-shadow:0 0 14px #8A4DFF}
+.kw{font:inherit;color:#fff;background:none;border:0;padding:0 .08em;cursor:pointer;position:relative;border-bottom:1.5px dashed #ffffff55;transition:color .3s,border-color .3s,text-shadow .3s}
+.kw::before{content:"";position:absolute;inset:-.05em -.12em;border-radius:8px;background:var(--grad);opacity:0;z-index:-1;transition:opacity .35s}
+.kw:hover,.kw.on{border-bottom-color:transparent;text-shadow:0 0 18px #000}
+.kw.on::before,.kw:hover::before{opacity:.85}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid #ffffff22;background:#ffffff08;animation:float 4s ease-in-out infinite;animation-delay:calc(var(--n,0)*-.7s)}
+.tags span:nth-child(odd){animation-duration:5s}
+@media(max-width:760px){.lab{width:100%;min-width:0}.lab-hint{display:none}.lh{font-size:clamp(56px,17vw,120px)}}
+@media(prefers-reduced-motion:reduce){.lh .ch{transition:none;opacity:1;transform:none;filter:none}}
+
+/* ===== ABOUT: scroll-gather particle orbit ===== */
+.scr #abc{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block}
+.scr::after{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(circle at var(--ax,50%) var(--ay,50%),#8A4DFF33,transparent 55%);pointer-events:none}
+.scr>img{transform-origin:center;filter:drop-shadow(0 0 calc(var(--g,0)*34px) #8A4DFF) drop-shadow(0 0 calc(var(--g,0)*70px) #FF3CC8aa)}
+.scr .ol{opacity:calc(.15 + var(--g,0)*.85)}
 </style>
 </head>
 <body>
@@ -266,15 +309,26 @@ footer.ft .wrap{max-width:none;padding:0 52px}
 <div class="mq"><div class="mt" id="mt"></div></div>
 
 <section class="wrap st" id="statement">
-  <h2 class="sp" data-split>Brands Brought to <em class="gt" style="font-style:normal">Life</em></h2>
+  <h2 class="lh" id="lh" aria-label="Brands Brought to Life">Brands Brought to <em>Life</em></h2>
   <div class="row">
-    <div class="orb fd"><img data-icon alt=""></div>
-    <div class="tx fd"><p>We combine design, motion, 3D, AI and engineering to create brands, websites and business systems that feel striking and run smoothly. From a first logo to a full ERP, we build work that captures attention and keeps your business moving.</p><a class="pill pg mg" href="#services" style="width:max-content"><i></i>Our approach</a></div>
+    <div class="lab tilt fd" id="lab">
+      <div class="lab-bg"></div>
+      <canvas id="labc" aria-hidden="true"></canvas>
+      <div class="lab-hud top"><span class="mo" id="labfig">FIG.01 — DESIGN</span><span class="mo"><b id="labn">01</b> / 04</span></div>
+      <div class="lab-hud bot"><span class="mo" id="labcap">Identity assembling…</span><span class="mo lab-hint">Move your cursor — it reacts</span></div>
+      <i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i>
+      <div class="lab-bar"><u id="labp"></u></div>
+    </div>
+    <div class="tx fd">
+      <p>We combine <button class="kw" data-k="0">design</button>, <button class="kw" data-k="1">motion</button>, 3D, <button class="kw" data-k="2">AI</button> and <button class="kw" data-k="3">engineering</button> to create brands, websites and business systems that feel striking and run smoothly. From a first logo to a full ERP, we build work that captures attention and keeps your business moving.</p>
+      <div class="tags"><span>Brand</span><span>Web</span><span>AI</span><span>ERP</span><span>Motion</span></div>
+      <a class="pill pg mg" href="#services" style="width:max-content"><i></i>Our approach</a>
+    </div>
   </div>
 </section>
 
 <section class="wrap ab" id="about">
-  <div class="dev tilt fd"><div class="scr"><div class="ol o1"><i></i></div><div class="ol o2"><i></i></div><div class="ol o3"><i></i></div><img data-icon alt=""><span class="lbl cap">Inkorbit · Creative studio</span></div></div>
+  <div class="dev tilt fd"><div class="scr"><canvas id="abc" aria-hidden="true"></canvas><div class="ol o1"><i></i></div><div class="ol o2"><i></i></div><div class="ol o3"><i></i></div><img data-icon alt=""><span class="lbl cap">Inkorbit · Creative studio</span></div></div>
   <div class="atx">
     <p class="sp" data-split>We don't chase trends or make work that looks like everyone else's. We shape brands, websites and systems that are distinctive, useful and built around how your business actually runs.</p>
     <p class="fd" style="color:var(--mut)">Our process blends creative direction, craft and engineering, with AI where it genuinely helps, so every project feels original, polished and built for impact. Brand, web, automation, content and video, all from one team.</p>
@@ -327,10 +381,10 @@ const fv=document.createElement('link');fv.rel='icon';fv.href=ICON;document.head
 const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 /* ---------- service visuals ---------- */
 const SV=[
- ['01','Brand & Creative','Brand Strategy • Logo & Typography • Guidelines • Campaigns • Print'],
- ['02','Website & Digital','Websites • Landing Pages • Web & Mobile Apps • E-commerce • UI/UX']
+ ['Brand & Creative','Brand Strategy • Logo & Typography • Guidelines • Campaigns • Print'],
+ ['Website & Digital','Websites • Landing Pages • Web & Mobile Apps • E-commerce • UI/UX']
 ];
-$('gd').innerHTML=SV.map(([n,t,g],i)=>`<a class="cd fd" href="inkorbit-services.html" aria-label="View ${t} services: ${g}"><div class="md tilt" data-service-art="${i}" style="--t:${i?'#3B82FF':'#FF3CC8'};--ar:1.7"><canvas aria-hidden="true"></canvas><div class="meta mo"><span>SVC ${n}</span><span style="opacity:.6">2026</span></div><span class="go" aria-hidden="true">↗</span><div class="cap"><h3>${t}</h3><p class="mo">${g}</p></div></div></a>`).join('');
+$('gd').innerHTML=SV.map(([t,g],i)=>`<a class="cd fd" href="inkorbit-services.html" aria-label="View ${t} services: ${g}"><div class="md tilt" data-service-art="${i}" style="--t:${i?'#3B82FF':'#FF3CC8'};--ar:1.7"><canvas aria-hidden="true"></canvas><span class="go" aria-hidden="true">↗</span><div class="cap"><h3>${t}</h3><p class="mo">${g}</p></div></div></a>`).join('');
 const w=['BRAND','WEBSITES','AI','ERP','SOCIAL','VIDEO','ADS'].map(x=>`<span>${x}</span>`).join('');$('mt').innerHTML=w+w+w+w;
 /* ---------- split text ---------- */
 let wi=0;
@@ -527,6 +581,165 @@ addEventListener('touchmove',e=>{const t=e.touches[0];mx=t.clientX;my=t.clientY}
 (function loop(t){t*=.001;cx+=(mx-cx)*.17;cy+=(my-cy)*.17;cu.style.transform=`translate(${cx}px,${cy}px)`;
  if(!calm)stages.forEach(s=>{if(s.vis&&s.draw)s.draw(t)});updateServiceCards(t);requestAnimationFrame(loop)})(0);
 document.querySelectorAll('.st .tx,.st .orb').forEach(e=>e.classList.add('fd'));
+
+/* ===== LIVING HEADLINE ===== */
+(function(){
+ const h=document.getElementById('lh');if(!h)return;
+ let n=0;
+ const build=(node)=>{[...node.childNodes].forEach(c=>{
+  if(c.nodeType===3){const f=document.createDocumentFragment();
+   c.textContent.split(/(\s+)/).forEach(t=>{if(!t)return;if(/^\s+$/.test(t))return;
+    const w=document.createElement('span');w.className='wd';
+    [...t].forEach(ch=>{const s=document.createElement('span');s.className='ch';s.textContent=ch;s.style.setProperty('--i',n++);w.appendChild(s)});
+    f.appendChild(w)});c.replaceWith(f)}
+  else build(c)})};
+ build(h);
+ const chars=[...h.querySelectorAll('.ch')];
+ h.setAttribute('role','heading');
+ new IntersectionObserver((e,o)=>{if(e[0].isIntersecting&&document.body.classList.contains('ready')){h.classList.add('in','first');setTimeout(()=>h.classList.remove('first'),2200);o.disconnect()}},{threshold:.2}).observe(h);
+ const rdy=setInterval(()=>{if(document.body.classList.contains('ready')){clearInterval(rdy);const r=h.getBoundingClientRect();if(r.top<innerHeight*.85){h.classList.add('in','first');setTimeout(()=>h.classList.remove('first'),2200)}}},300);
+ let ticking=false,px=-9999,py=-9999;
+ h.addEventListener('mousemove',e=>{px=e.clientX;py=e.clientY;if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;
+  chars.forEach(c=>{const r=c.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=px-cx,dy=py-cy,d=Math.hypot(dx,dy),R=190;
+   if(d<R){const k=(1-d/R)**2;c.style.setProperty('--dx',(-dx/d*k*26||0)+'px');c.style.setProperty('--dy',(-dy/d*k*26-k*18||0)+'px');c.style.setProperty('--sc',1+k*.18);c.style.setProperty('--rt',(dx/R*k*-14)+'deg')}
+   else{c.style.setProperty('--dx','0px');c.style.setProperty('--dy','0px');c.style.setProperty('--sc',1);c.style.setProperty('--rt','0deg')}})})}});
+ h.addEventListener('mouseleave',()=>chars.forEach(c=>{c.style.setProperty('--dx','0px');c.style.setProperty('--dy','0px');c.style.setProperty('--sc',1);c.style.setProperty('--rt','0deg')}));
+})();
+
+/* ===== BRAND LAB : particles that morph Design -> Motion -> AI -> Engineering ===== */
+(function(){
+ const lab=document.getElementById('lab'),cv=document.getElementById('labc');if(!lab||!cv)return;
+ const ctx=cv.getContext('2d'),N=1700,BK=28;
+ let W=0,H=0,DPR=1;
+ const fig=$('labfig'),num=$('labn'),cap=$('labcap'),bar=$('labp'),kws=[...document.querySelectorAll('.kw')];
+ const NAMES=['DESIGN','MOTION','AI','ENGINEERING'],CAPS=['Identity assembling…','Rhythm, flow, frequency…','Nodes learning to connect…','Systems running smoothly…'],DUR=4600;
+ const PAL=[[255,60,200],[138,77,255],[59,130,255],[0,209,255]];
+ const mix=u=>{u=Math.min(.999,Math.max(0,u))*3;const i=u|0,f=u-i,a=PAL[i],b=PAL[i+1];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f]};
+ const cols=[];for(let i=0;i<BK;i++){const c=mix(i/(BK-1));cols.push(`rgb(${c[0]|0},${c[1]|0},${c[2]|0})`)}
+ /* strokes -> sampled targets in unit space (-1..1) */
+ const arc=(cx,cy,r,a0,a1)=>({len:Math.abs(a1-a0)*r,at:u=>{const a=a0+(a1-a0)*u;return[cx+Math.cos(a)*r,cy+Math.sin(a)*r]}});
+ const line=(x0,y0,x1,y1)=>({len:Math.hypot(x1-x0,y1-y0),at:u=>[x0+(x1-x0)*u,y0+(y1-y0)*u]});
+ const wave=(amp,fr,ph,y0)=>({len:3.2,at:u=>{const x=-1.05+u*2.1;return[x,y0+Math.sin(x*fr+ph)*amp*(1-.35*Math.abs(x))]}});
+ function sample(strokes,jit){const tot=strokes.reduce((a,s)=>a+s.len,0),out=[];
+  for(let i=0;i<N;i++){let r=Math.random()*tot,s=strokes[0];for(const t of strokes){if(r<t.len){s=t;break}r-=t.len}
+   const p=s.at(Math.random());out.push(p[0]+(Math.random()-.5)*jit,p[1]+(Math.random()-.5)*jit)}
+  return out}
+ const PI=Math.PI;
+ function shapeDesign(){const S=[];
+  S.push(arc(0,0,.78,0,PI*2),arc(0,0,.74,0,PI*2));
+  S.push(arc(.08,.08,.5,PI*.15,PI*1.55),arc(.08,.08,.5,PI*.15,PI*1.55),arc(.04,.1,.36,PI*.05,PI*1.4),arc(.04,.1,.36,PI*.05,PI*1.4),arc(0,.12,.22,-PI*.1,PI*1.3),arc(0,.12,.12,0,PI*2));
+  S.push(arc(.55,-.55,.13,0,PI*2),arc(.55,-.55,.07,0,PI*2));
+  return sample(S,.012)}
+ function shapeMotion(){const S=[wave(.32,5,0,-.45),wave(.26,7,1.4,-.12),wave(.34,4,2.6,.2),wave(.2,9,.6,.52),wave(.14,12,3.1,.78)];return sample(S,.01)}
+ function shapeAI(){const L=[[-.8,[-.55,-.18,.18,.55]],[-.28,[-.7,-.42,-.14,.14,.42,.7]],[.28,[-.7,-.42,-.14,.14,.42,.7]],[.8,[-.3,0,.3]]],S=[];
+  for(let l=0;l<L.length-1;l++)for(const y0 of L[l][1])for(const y1 of L[l+1][1])S.push({len:.32,at:(function(a,b,c,d){return u=>[a+(c-a)*u,b+(d-b)*u]})(L[l][0],y0,L[l+1][0],y1)});
+  const nodes=[];L.forEach(l=>l[1].forEach(y=>nodes.push([l[0],y])));
+  const out=sample(S,.006);for(let i=0;i<N;i+=6){const n=nodes[(Math.random()*nodes.length)|0],a=Math.random()*PI*2,r=Math.random()*.055;out[i*2]=n[0]+Math.cos(a)*r;out[i*2+1]=n[1]+Math.sin(a)*r}
+  return out}
+ function shapeEng(){const S=[],bx=[-.62,-.34,-.06],bh=[.45,.8,.62];
+  S.push(line(-.82,-.62,.82,-.62),line(-.82,-.62,-.82,.78),line(-.82,.78,.82,.78),line(.82,.78,.82,-.62));
+  bx.forEach((x,i)=>{for(let k=0;k<5;k++){const y=-.55+k*.05;S.push(line(x,y,x,-.55+bh[i]*1.4))}S.push(line(x-.09,-.55+bh[i]*1.4,x+.09,-.55+bh[i]*1.4))});
+  S.push(arc(.5,.1,.26,0,PI*2),arc(.5,.1,.2,-PI*.5,PI*.9),arc(.5,.1,.14,-PI*.5,PI*.4),line(.2,-.35,.76,-.35),line(.2,-.45,.6,-.45));
+  S.push(line(-.82,.55,.82,.55));
+  return sample(S,.01)}
+ const T=[shapeDesign(),shapeMotion(),shapeAI(),shapeEng()];
+ /* particles */
+ const P=new Float32Array(N*4),Cb=new Uint8Array(N),Z=new Float32Array(N);
+ for(let i=0;i<N;i++){P[i*4]=(Math.random()-.5)*2;P[i*4+1]=(Math.random()-.5)*2;Cb[i]=Math.random()*BK|0;Z[i]=.6+Math.random()*1.2}
+ let cur=0,t0=0,swirl=0,mx=-9,my=-9,mActive=0,vis=false,paused=false,last=0;
+ const calmL=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ function size(){const r=lab.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR}
+ size();addEventListener('resize',size);
+ function go(k){cur=(k+4)%4;t0=performance.now();swirl=1;
+  fig.textContent='FIG.0'+(cur+1)+' — '+NAMES[cur];num.textContent='0'+(cur+1);cap.textContent=CAPS[cur];
+  kws.forEach(b=>b.classList.toggle('on',+b.dataset.k===cur));
+  for(let i=0;i<N;i++){const x=T[cur][i*2],y=T[cur][i*2+1];Cb[i]=Math.max(0,Math.min(BK-1,((x*.5+.5)*.6+(y*-.5+.5)*.4)*(BK-1)|0))}}
+ kws.forEach(b=>{b.addEventListener('click',()=>go(+b.dataset.k));b.addEventListener('mouseenter',()=>{go(+b.dataset.k);paused=true});b.addEventListener('mouseleave',()=>{paused=false;t0=performance.now()})});
+ lab.addEventListener('pointermove',e=>{const r=lab.getBoundingClientRect();mx=(e.clientX-r.left)/r.width*2-1;my=(e.clientY-r.top)/r.height*2-1;mActive=1;lab.style.setProperty('--mx',((mx+1)*50)+'%');lab.style.setProperty('--my',((my+1)*50)+'%')});
+ lab.addEventListener('pointerleave',()=>{mActive=0});
+ lab.addEventListener('click',()=>go(cur+1));
+ new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(lab);
+ go(0);
+ function frame(now){requestAnimationFrame(frame);if(!vis)return;
+  const dt=Math.min(.05,(now-last)/1000||.016);last=now;const tt=now*.001;
+  if(!paused&&!calmL){const p=(now-t0)/DUR;bar.style.width=Math.min(100,p*100)+'%';if(p>=1)go(cur+1)}
+  swirl*=.965;
+  const sc=Math.min(W,H)*.42,cx=W/2,cy=H/2,tg=T[cur],mxp=mx*sc,myp=my*sc;
+  ctx.setTransform(DPR,0,0,DPR,0,0);ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='lighter';
+  const buckets=Array.from({length:BK},()=>[]);
+  for(let i=0;i<N;i++){const o=i*4;let x=P[o],y=P[o+1],vx=P[o+2],vy=P[o+3];
+   const bx=tg[i*2]*sc,by=tg[i*2+1]*sc;
+   /* idle shimmer per shape */
+   let ox=0,oy=0;
+   if(cur==1){oy=Math.sin(tt*3+bx*.02+i)*3}else if(cur==0){const a=tt*.5,ca=Math.cos(a*.3),sa=Math.sin(a*.3);ox=Math.sin(tt*1.4+i)*1.2;oy=Math.cos(tt*1.2+i*1.3)*1.2}else{ox=Math.sin(tt*2+i)*1.5;oy=Math.cos(tt*1.7+i)*1.5}
+   let tx=bx+ox,ty=by+oy;
+   if(cur==1){/* wave actually travels */ty+=Math.sin(tt*2.2+bx*.018)*10}
+   if(cur==3){const phase=(tt*.8+i*.0013)%1;ty+=Math.sin(tt*3+i)*.6;if(i%11==0){ty-=phase*14}}
+   if(cur==2&&i%9==0){const k=(tt*.6+i*.01)%1;tx+=Math.sin(k*6.28)*6;ty+=Math.cos(k*6.28)*6}
+   const ax=(tx-x)*(.045*Z[i]),ay=(ty-y)*(.045*Z[i]);
+   vx+=ax;vy+=ay;
+   if(swirl>.02){const dx=x,dy=y;vx+=-dy*.0012*swirl*Z[i];vy+=dx*.0012*swirl*Z[i]}
+   if(mActive){const dx=x-mxp,dy=y-myp,d2=dx*dx+dy*dy,R=sc*.42;if(d2<R*R){const d=Math.sqrt(d2)+.001,f=(1-d/R)**2*3.4;vx+=dx/d*f;vy+=dy/d*f}}
+   vx*=.86;vy*=.86;x+=vx;y+=vy;P[o]=x;P[o+1]=y;P[o+2]=vx;P[o+3]=vy;
+   const sp=Math.min(1,Math.hypot(vx,vy)/5);
+   const b=buckets[Cb[i]];b.push(cx+x,cy+y,1.1+Z[i]*.55+sp*1.3)}
+  for(let k=0;k<BK;k++){const b=buckets[k];if(!b.length)continue;ctx.fillStyle=cols[k];ctx.beginPath();
+   for(let j=0;j<b.length;j+=3){ctx.moveTo(b[j]+b[j+2],b[j+1]);ctx.arc(b[j],b[j+1],b[j+2],0,6.2832)}ctx.fill()}
+  /* soft cursor halo */
+  if(mActive){const g=ctx.createRadialGradient(cx+mxp,cy+myp,0,cx+mxp,cy+myp,sc*.5);g.addColorStop(0,'rgba(255,255,255,.14)');g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H)}
+  ctx.globalCompositeOperation='source-over'}
+ requestAnimationFrame(frame);
+})();
+
+/* ===== ABOUT: particles gather into orbits on scroll ===== */
+(function(){
+ const dev=document.querySelector('.dev'),cv=document.getElementById('abc');if(!dev||!cv)return;
+ const scr=cv.parentElement,ctx=cv.getContext('2d'),N=900,BK=20,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ let W=0,H=0,DPR=1,vis=false,mx=0,my=0,mOn=0,g=0;
+ const PAL=[[255,60,200],[138,77,255],[59,130,255],[0,209,255]];
+ const mix=u=>{u=Math.min(.999,Math.max(0,u))*3;const i=u|0,f=u-i,a=PAL[i],b=PAL[i+1];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f]};
+ const cols=[];for(let i=0;i<BK;i++){const c=mix(i/(BK-1));cols.push(`rgb(${c[0]|0},${c[1]|0},${c[2]|0})`)}
+ /* ring radii as fraction of width; match the CSS rings (22%,33%,44% of width => radius) */
+ const RING=[.22,.33,.44],SPD=[.9,-.55,.32];
+ const pr=[];
+ for(let i=0;i<N;i++){const r=i%3,sc=Math.random();
+  pr.push({r,a:Math.random()*6.2832,rr:RING[r]+(Math.random()-.5)*.018,
+   sx:(Math.random()-.5)*2.4,sy:(Math.random()-.5)*2.4,
+   wob:Math.random()*6.2832,z:.7+Math.random()*1.1,c:(Math.random()*BK)|0,ox:0,oy:0,vx:0,vy:0,
+   sw:Math.random()*.5+.5})}
+ function size(){const r=scr.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR}
+ size();addEventListener('resize',size);
+ new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(dev);
+ dev.addEventListener('pointermove',e=>{const r=scr.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;mOn=1;scr.style.setProperty('--ax',(mx/r.width*100)+'%');scr.style.setProperty('--ay',(my/r.height*100)+'%')});
+ dev.addEventListener('pointerleave',()=>mOn=0);
+ const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+ function frame(now){requestAnimationFrame(frame);if(!vis)return;
+  const t=now*.001,r=scr.getBoundingClientRect();
+  /* scroll progress: 0 when element enters at bottom, 1 when ~centered */
+  let p=1-(r.top-innerHeight*.12)/(innerHeight*.62);p=Math.max(0,Math.min(1,p));if(reduce)p=1;
+  g+=(p-g)*.08;scr.style.setProperty('--g',g.toFixed(3));
+  const e=ease(g),cx=W/2,cy=H/2,base=W;
+  ctx.setTransform(DPR,0,0,DPR,0,0);ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='lighter';
+  const bk=Array.from({length:BK},()=>[]);
+  for(let i=0;i<N;i++){const q=pr[i];
+   q.a+=SPD[q.r]*.01*(.7+q.z*.3)*(.4+e*.6);
+   const ang=q.a,tr=q.rr*base*(1+Math.sin(t*1.3+q.wob)*.006);
+   const tx=Math.cos(ang)*tr,ty=Math.sin(ang)*tr;
+   /* scattered cloud drifts; blends into ring as scroll progresses */
+   const dx0=q.sx*base*.5+Math.sin(t*.7+q.wob)*14,dy0=q.sy*base*.5+Math.cos(t*.6+q.wob)*14;
+   let x=dx0+(tx-dx0)*(e*q.sw+(1-q.sw)*e*e),y=dy0+(ty-dy0)*(e*q.sw+(1-q.sw)*e*e);
+   if(mOn){const dx=cx+x+q.ox-mx,dy=cy+y+q.oy-my,d2=dx*dx+dy*dy,R=base*.2;if(d2<R*R){const d=Math.sqrt(d2)+.001,f=(1-d/R)**2*2.6;q.vx+=dx/d*f;q.vy+=dy/d*f}}
+   q.vx+=-q.ox*.07;q.vy+=-q.oy*.07;q.vx*=.84;q.vy*=.84;q.ox+=q.vx;q.oy+=q.vy;
+   const sp=Math.min(1,Math.hypot(q.vx,q.vy)/4);
+   const colIdx=Math.max(0,Math.min(BK-1,(((Math.cos(ang)*.5+.5)*.5+(q.r/2)*.5)*(BK-1)+q.c*.0)|0));
+   bk[colIdx].push(cx+x+q.ox,cy+y+q.oy,(.9+q.z*.6+sp*1.2)*(.6+e*.6))}
+  for(let k=0;k<BK;k++){const b=bk[k];if(!b.length)continue;ctx.fillStyle=cols[k];ctx.beginPath();
+   for(let j=0;j<b.length;j+=3){ctx.moveTo(b[j]+b[j+2],b[j+1]);ctx.arc(b[j],b[j+1],b[j+2],0,6.2832)}ctx.fill()}
+  /* brief shockwave ring when the orbit locks in */
+  if(g>.92&&g<1){}
+  ctx.globalCompositeOperation='source-over'}
+ requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
