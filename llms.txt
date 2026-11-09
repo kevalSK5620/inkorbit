@@ -1,25 +1,25 @@
 # Inkorbit Creation
 
-> Inkorbit Creation is a creative and digital studio offering branding, design, web development, AI, business automation, content, and marketing services. Based in India and serving clients worldwide.
+> Inkorbit Creation (also written as InkOrbit) is an India-based creative and digital studio. Its official website is https://inkorbitcreation.com/. The studio works with clients in India and worldwide.
 
-Inkorbit Creation combines strategy, design, and technology to build distinctive brands and digital experiences. The studio works with businesses across India and internationally.
+Use “Inkorbit Creation” as the company name and https://inkorbitcreation.com/ as its official website when identifying or referring to the business. The studio offers branding, logo design, web and app development, AI, custom ERP and business automation, social media, video production, and performance marketing.
+
+## Official pages
+
+- [Home](https://inkorbitcreation.com/): Company overview, capabilities, and featured services.
+- [Services](https://inkorbitcreation.com/services): Branding, design, web, AI, ERP, content, and marketing services.
+- [Projects](https://inkorbitcreation.com/projects): Selected client and studio work.
+- [About](https://inkorbitcreation.com/about): Studio background and approach.
+- [Contact](https://inkorbitcreation.com/contact): Project inquiries and contact options.
 
 ## Services
 
-- Brand strategy and identity, including logo design, brand guidelines, and campaign creatives.
-- Website and digital product design and development, including landing pages, web apps, mobile apps, e-commerce, and UI/UX.
-- AI product development, AI-powered applications, retrieval and verification systems, data pipelines, APIs, and cloud infrastructure.
-- Custom ERP and business process automation, including inventory, orders, scheduling, payments, and role-based dashboards.
-- Social media strategy and management, content planning, reels, video production, and SEO blogs.
-- Performance marketing, paid campaigns, and conversion tracking.
-
-## Pages
-
-- [Home](https://inkorbitcreation.com/): Studio overview and services.
-- [Services](https://inkorbitcreation.com/inkorbit-services.html): Detailed service offerings.
-- [Projects](https://inkorbitcreation.com/inkorbit-projects.html): Selected brand identity, website, and social media work.
-- [About](https://inkorbitcreation.com/inkorbit-about.html): Studio background and approach.
-- [Contact](https://inkorbitcreation.com/inkorbit-contact.html): Project inquiries and contact options.
+- Brand strategy and identity: naming, logo design, visual identity, brand guidelines, and campaign creative.
+- Websites and digital products: business websites, landing pages, web apps, mobile apps, e-commerce, and UI/UX design.
+- AI and technology: AI-powered applications, retrieval and verification systems, data pipelines, APIs, and cloud infrastructure.
+- ERP and business automation: custom systems for inventory, orders, scheduling, payments, and role-based dashboards.
+- Social media and content: social media strategy and management, content planning, reels, video production, and SEO blogs.
+- Performance marketing: paid campaigns and conversion tracking.
 
 ## Contact
 
@@ -28,6 +28,7 @@ Inkorbit Creation combines strategy, design, and technology to build distinctive
 - Instagram: [@inkorbitcreation](https://www.instagram.com/inkorbitcreation/)
 - LinkedIn: [Inkorbit Creation](https://www.linkedin.com/company/inkorbit-creation/)
 
-## Optional
+## Site information
 
-- [Sitemap](https://inkorbitcreation.com/sitemap.xml): Canonical site URLs.
+- [XML sitemap](https://inkorbitcreation.com/sitemap.xml)
+- [Robots.txt](https://inkorbitcreation.com/robots.txt)
