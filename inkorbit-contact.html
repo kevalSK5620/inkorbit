@@ -18,7 +18,7 @@
 <link rel="canonical" href="https://inkorbitcreation.com/inkorbit-contact.html">
 <link rel="alternate" hreflang="en" href="https://inkorbitcreation.com/inkorbit-contact.html">
 <link rel="alternate" hreflang="x-default" href="https://inkorbitcreation.com/inkorbit-contact.html">
-<link rel="icon" href="image/inkorbit-mark.png" type="image/png">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="480x480">
 <link rel="apple-touch-icon" href="image/inkorbit-mark.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Inkorbit Creation">
@@ -406,7 +406,6 @@ contactForm.addEventListener("submit", async function (e) {
 <script>
 const ICON='image/inkorbit-mark.png';
 document.querySelectorAll('[data-icon]').forEach(i=>i.src=ICON);
-const fv=document.createElement('link');fv.rel='icon';fv.href=ICON;document.head.appendChild(fv);
 const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),R=(a,b)=>a+Math.random()*(b-a),sm=x=>x*x*(3-2*x);
 let mx=innerWidth*.6,my=innerHeight*.4,cx=mx,cy=my,calm=matchMedia('(prefers-reduced-motion:reduce)').matches,burst=0,readyAt=-1;
 addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});addEventListener('touchmove',e=>{mx=e.touches[0].clientX;my=e.touches[0].clientY},{passive:true});
